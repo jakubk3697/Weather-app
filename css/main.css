@@ -1,3 +1,10 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Baloo Thambi 2", cursive;
   margin: 0;
@@ -8,9 +15,15 @@ h1 {
 }
 
 main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100vw;
   height: 100vh;
   background-image: url("https://picsum.photos/1600/1050");
@@ -25,17 +38,29 @@ main {
   max-height: 700px;
   padding: 5%;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(245, 245, 245, 0.9) 100%);
-  box-shadow: 0px 0px 10px 3px rgba(36, 36, 36, 0.05);
-  transition-duration: 0.5s;
+  background: linear-gradient(135deg, white 0%, rgba(245, 245, 245, 0.9) 100%);
+  -webkit-box-shadow: 0px 0px 10px 3px rgba(36, 36, 36, 0.05);
+          box-shadow: 0px 0px 10px 3px rgba(36, 36, 36, 0.05);
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-property: opacity;
   transition-property: opacity;
 }
 
 .weather-info__search-view {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 200px;
 }
 
@@ -61,9 +86,15 @@ main {
 }
 
 .weather-info__city {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .weather-info__btn-return {

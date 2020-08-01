@@ -1,8 +1,6 @@
 import { getWeatherByCity } from "./apiService.js";
 import { mapListToDOMElements } from "./DOMActions.js";
 
-const viewElems = {};
-
 class WeatherApp {
   constructor() {
     this.viewElems = {};

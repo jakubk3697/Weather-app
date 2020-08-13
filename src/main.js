@@ -4,6 +4,7 @@ import { mapListToDOMElements } from "./DOMActions.js";
 class WeatherApp {
   constructor() {
     this.viewElems = {};
+    this.errInfo = document.getElementById("errInfo");
     this.initializeApp();
   }
 
@@ -27,11 +28,17 @@ class WeatherApp {
     if (e.type == "click" || e.key === "Enter") {
       this.fadeInOut();
       let query = this.viewElems.searchInput.value;
-      getWeatherByCity(query).then((data) => {
-        this.displayWeatherData(data);
-        this.switchView();
-        this.fadeInOut();
-      });
+      getWeatherByCity(query)
+        .then((data) => {
+          this.displayWeatherData(data);
+          this.viewElems.searchInput.style.borderColor = "black";
+          this.errInfo.style.display = "none";
+        })
+        .catch(() => {
+          this.fadeInOut();
+          this.viewElems.searchInput.style.borderColor = "red";
+          this.errInfo.style.display = "block";
+        });
     }
   };
 
@@ -62,6 +69,8 @@ class WeatherApp {
   };
 
   displayWeatherData = (data) => {
+    this.switchView();
+    this.fadeInOut();
     const weather = data.consolidated_weather[0];
     console.log(data);
     this.viewElems.weatherCity.innerText = data.title;
@@ -72,9 +81,9 @@ class WeatherApp {
     const maxTemp = weather.max_temp.toFixed(2);
     const minTemp = weather.min_temp.toFixed(2);
 
-    this.viewElems.weatherCurrentTemp.innerText = `Current temperature: ${currTemp}`;
-    this.viewElems.weatherMaxTemp.innerText = `Max temperature: ${maxTemp}`;
-    this.viewElems.weatherMinTemp.innerText = `Min temperature ${minTemp}`;
+    this.viewElems.weatherCurrentTemp.innerText = `Current temperature: ${currTemp}°C`;
+    this.viewElems.weatherMaxTemp.innerText = `Max temperature: ${maxTemp}°C`;
+    this.viewElems.weatherMinTemp.innerText = `Min temperature ${minTemp}°C`;
   };
 }
 

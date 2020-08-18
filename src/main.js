@@ -1,4 +1,4 @@
-import { getWeatherByCity } from "./apiService.js";
+import { getWeatherByCity, getNameDateByCountry } from "./apiService.js";
 import { mapListToDOMElements } from "./DOMActions.js";
 
 class WeatherApp {
@@ -81,9 +81,9 @@ class WeatherApp {
     const maxTemp = weather.max_temp.toFixed(2);
     const minTemp = weather.min_temp.toFixed(2);
 
-    this.viewElems.weatherCurrentTemp.innerText = `Current temperature: ${currTemp}°C`;
-    this.viewElems.weatherMaxTemp.innerText = `Max temperature: ${maxTemp}°C`;
-    this.viewElems.weatherMinTemp.innerText = `Min temperature ${minTemp}°C`;
+    this.viewElems.weatherCurrentTemp.innerText = `Current: ${currTemp}°C`;
+    this.viewElems.weatherMaxTemp.innerText = `Max: ${maxTemp}°C`;
+    this.viewElems.weatherMinTemp.innerText = `Min: ${minTemp}°C`;
   };
 }
 

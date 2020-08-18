@@ -107,21 +107,47 @@ main {
 }
 
 .weather-info__forecast-view {
-  width: 90%;
   display: none;
 }
 
-.weather-info__forecast-view p {
-  margin-top: 10px;
+.weather-info__temperatures h3 {
+  text-align: center;
+  padding-bottom: 12px;
+  font-size: 1.7rem;
+  letter-spacing: 1px;
+}
+
+.weather-info__temperatures h3 span {
+  font-weight: normal;
+}
+
+.weather-info__temperatures__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.weather-info__temperatures__wrap p {
+  font-weight: bold;
+  margin-top: 15px;
+  width: 50%;
+  -webkit-text-decoration: underline rgba(0, 0, 0, 0.2);
+          text-decoration: underline rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.weather-info__temperatures__wrap span {
+  font-weight: normal;
 }
 
 .weather-info__city {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -130,6 +156,8 @@ main {
 
 .weather-info__city h1 {
   font-size: 2rem;
+  padding-right: 20px;
+  letter-spacing: 2px;
 }
 
 .weather-info__city .weatherIcon {

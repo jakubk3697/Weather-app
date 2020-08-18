@@ -16,5 +16,5 @@ export const getNameDateByCountry = () => {
   return fetch(api)
     .then((res) => res.json())
     .then((obj) => obj.data)
-    .then(data=>console.log(data))
+    .then((data) => data.namedays.pl);
 };

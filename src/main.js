@@ -1,4 +1,4 @@
-import { getWeatherByCity } from "./apiService.js";
+import { getWeatherByCity, getNameDateByCountry } from "./apiService.js";
 import { mapListToDOMElements } from "./DOMActions.js";
 
 class WeatherApp {

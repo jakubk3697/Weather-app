@@ -1,0 +1,20 @@
+/* screen and (min-width:576px) */
+
+.weather-info {
+  min-width: 450px;
+  min-height: 300px;
+}
+
+.weather-info__search-view {
+  label {
+    font-size: 3rem;
+  }
+  input {
+    padding: 10px 15px;
+    margin: 15px;
+    font-size: 1.5rem;
+  }
+  button {
+    font-size: 1.5rem;
+  }
+}

@@ -7,11 +7,7 @@
 
 body {
   font-family: "Montserrat", sans-serif;
-  margin: 0;
-}
-
-h1 {
-  font-size: 300%;
+  height: 100vh;
 }
 
 main {
@@ -24,21 +20,26 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100vw;
-  height: 100vh;
+  height: 100%;
   background-image: url("https://picsum.photos/1600/1050");
   background-size: cover;
   background-position: center;
 }
 
 .weather-info {
-  height: auto;
-  width: 40%;
-  min-width: 420px;
-  min-height: 230px;
-  padding: 2%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border-radius: 10px;
-  background: linear-gradient(135deg, white 0%, rgba(245, 245, 245, 0.9) 100%);
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(196, 196, 196, 0.8) 0%, rgba(245, 245, 245, 0.9) 50%, rgba(195, 195, 195, 0.8) 100%);
   -webkit-box-shadow: 0px 0px 10px 3px rgba(36, 36, 36, 0.05);
           box-shadow: 0px 0px 10px 3px rgba(36, 36, 36, 0.05);
   -webkit-transition-duration: 0.5s;
@@ -61,7 +62,6 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 200px;
 }
 
 .weather-info__search-view #errInfo {
@@ -70,28 +70,35 @@ main {
 }
 
 .weather-info__search-view label {
-  font-size: 200%;
+  font-size: 2rem;
 }
 
 .weather-info__search-view input {
-  padding: 10px 50px;
+  background-color: #f8f8f8;
+  padding: 5px 15px;
+  margin: 10px;
   border: 2px solid black;
-  font-size: 150%;
+  font-size: 1.1rem;
   text-align: center;
 }
 
+.weather-info__search-view input:focus {
+  background-color: #fcfcfc;
+}
+
 .weather-info__search-view button {
-  padding: 10px 25px;
-  background-color: #0089ff;
+  padding: 10px 20px;
+  background-color: #333;
   border: none;
   border-radius: 8px;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
+  margin-top: 10px;
 }
 
 .weather-info__search-view button:hover {
@@ -117,15 +124,24 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 20px;
+}
+
+.weather-info__city h1 {
+  font-size: 2rem;
+}
+
+.weather-info__city .weatherIcon {
+  width: 100px;
 }
 
 .weather-info__btn-return {
-  padding: 10px 25px;
-  background-color: #0089ff;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 10px;
+  background: none;
   border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 16px;
   cursor: pointer;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
@@ -133,7 +149,11 @@ main {
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 
+.weather-info__btn-return i {
+  font-size: 2.3rem;
+}
+
 .weather-info__btn-return:hover {
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }

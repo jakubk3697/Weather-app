@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin btn {
+  padding: 10px 20px;
+  background-color: #333;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-image: url("https://picsum.photos/1600/1050");
+  background-size: cover;
+  background-position: center;
+}
+
+.weather-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(196, 196, 196, 0.8) 0%, rgba(245, 245, 245, 0.9) 50%, rgba(195, 195, 195, 0.8) 100%);
+
+  box-shadow: 0px 0px 10px 3px rgba(36, 36, 36, 0.05);
+  transition-duration: 0.5s;
+  transition-property: opacity;
+}
+
+.weather-info__search-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  #errInfo {
+    display: none;
+    color: red;
+  }
+  label {
+    font-size: 2rem;
+  }
+  input {
+    background-color: rgb(248, 248, 248);
+    padding: 5px 15px;
+    margin: 10px;
+    border: 2px solid black;
+    font-size: 1.1rem;
+    text-align: center;
+    &:focus {
+      background-color: rgb(252, 252, 252);
+    }
+  }
+
+  button {
+    @include btn;
+    margin-top: 10px;
+  }
+}
+
+.weather-info__forecast-view {
+  width: 90%;
+  display: none;
+
+  p {
+    margin-top: 10px;
+  }
+}
+
+.weather-info__city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  h1 {
+    font-size: 2rem;
+  }
+  .weatherIcon {
+    width: 100px;
+  }
+}
+
+.weather-info__btn-return {
+  i {
+    font-size: 2.3rem;
+  }
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  padding: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s;
+  &:hover {
+    transform: scale(0.9);
+  }
+}

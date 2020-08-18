@@ -1,9 +1,4 @@
 /* screen and (min-width:576px) */
-.weather-info {
-  width: 500px;
-  height: 350px;
-}
-
 .weather-info__search-view label {
   font-size: 3rem;
 }
@@ -18,10 +13,26 @@
   font-size: 1.5rem;
 }
 
-.weather-info__city h1 {
-  font-size: 2.6rem;
+.weather-info__forecast-view .wrap {
+  padding: 20px 10px;
 }
 
-.weather-info__temperatures {
-  font-size: 1.2rem;
+.weather-info__city h1 {
+  font-size: 2.7rem;
+}
+
+.weather-info__city .weatherIcon {
+  width: 100px;
+}
+
+.weather-info__temperatures h3 {
+  font-size: 1.6rem;
+}
+
+.weather-info__temperatures p {
+  font-size: 1.1rem;
+}
+
+.weather-info__btn-return i {
+  font-size: 2.5rem;
 }

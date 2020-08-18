@@ -10,11 +10,3 @@ export const getWeatherByCity = (city) => {
         .then((data) => data);
     });
 };
-
-export const getNameDateByCountry = () => {
-  const api = `https://api.abalin.net/today?country=pl`;
-  return fetch(api)
-    .then((res) => res.json())
-    .then((obj) => obj.data)
-    .then((data) => data.namedays.pl);
-};

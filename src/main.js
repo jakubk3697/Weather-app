@@ -72,18 +72,27 @@ class WeatherApp {
     this.switchView();
     this.fadeInOut();
     const weather = data.consolidated_weather[0];
-    console.log(data);
     this.viewElems.weatherCity.innerText = data.title;
     this.viewElems.weatherIcon.src = `https://www.metaweather.com/static/img/weather/${weather.weather_state_abbr}.svg`;
     this.viewElems.weatherIcon.alt = weather.weather_state_name;
 
-    const currTemp = weather.the_temp.toFixed(2);
-    const maxTemp = weather.max_temp.toFixed(2);
-    const minTemp = weather.min_temp.toFixed(2);
+    const weatherStateName = weather.weather_state_name;
+    const currTemp = weather.the_temp.toFixed();
+    const maxTemp = weather.max_temp.toFixed();
+    const minTemp = weather.min_temp.toFixed();
+    const airPressure = weather.air_pressure.toFixed();
+    const humidity = weather.humidity.toFixed();
+    const windSpeed = weather.wind_speed.toFixed();
+    const valueOfRotate = weather.wind_direction.toFixed();
 
-    this.viewElems.weatherCurrentTemp.innerText = `Current: ${currTemp}°C`;
-    this.viewElems.weatherMaxTemp.innerText = `Max: ${maxTemp}°C`;
-    this.viewElems.weatherMinTemp.innerText = `Min: ${minTemp}°C`;
+    this.viewElems.weatherStateName.innerText = `${weatherStateName}`;
+    this.viewElems.weatherCurrentTemp.innerText = `${currTemp}°C`;
+    this.viewElems.weatherMaxTemp.innerText = `${maxTemp}°C`;
+    this.viewElems.weatherMinTemp.innerText = `${minTemp}°C`;
+    this.viewElems.airPressure.innerText = `${airPressure}hPa`;
+    this.viewElems.humidity.innerText = `${humidity}%`;
+    this.viewElems.windSpeed.innerText = `${windSpeed}km/h`;
+    this.viewElems.windArrow.style.transform = `rotate(${valueOfRotate}deg)`;
   };
 }
 

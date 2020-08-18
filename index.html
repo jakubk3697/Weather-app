@@ -47,14 +47,25 @@
         </button>
 
         <div class="weather-info__city">
-          <h1 id="weatherCity"></h1>
+          <h1 id="weatherCity" class="weatherCity"></h1>
           <img id="weatherIcon"  class="weatherIcon"></h1>
         </div>
 
+      
         <div class="weather-info__temperatures">
-          <h2 id="weatherCurrentTemp"></h2>
-          <p id="weatherMaxTemp"></p>
-          <p id="weatherMinTemp"></p>
+          <h3>Weather for: <span id="weatherDate">2020-08-18</span></h3>
+          <div class="weather-info__temperatures__wrap">
+            <p class="info"> Condition: <span id="weatherStateName"></span></p>
+            <p class="info"> Current: <span id="weatherCurrentTemp"></span></p>
+            <p class="info"> Max: <span id="weatherMaxTemp"></span></p>
+            <p class="info">Min: <span id="weatherMinTemp" ></span></p>
+            <p class="info" >Air Pressure: <span id="airPressure"></span></p>
+            <p class="info">Humidity: <span id="humidity"></span></p>
+            <p class="info">Wind speed: 
+              <span id="windSpeed"></span>
+              <i id="windArrow" class="fas fa-arrow-up"></i>
+            </p>
+          </div>
         </div>
       </div>
     </section>

@@ -8,5 +8,6 @@ export const getWeatherByCity = (city) => {
       return fetch(api2)
         .then((res) => res.json())
         .then((data) => data);
+        
     });
 };

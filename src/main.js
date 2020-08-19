@@ -79,31 +79,22 @@ class WeatherApp {
   displayWeatherData = (data) => {
     this.switchView();
     this.fadeInOut();
+
+    const { weather_state_name, the_temp, max_temp, min_temp, air_pressure, humidity, wind_speed, wind_direction, applicable_date } = data.consolidated_weather[this.dayCount];
     const weather = data.consolidated_weather[this.dayCount];
-    console.log(data);
     this.viewElems.weatherCity.innerText = data.title;
     this.viewElems.weatherIcon.src = `https://www.metaweather.com/static/img/weather/${weather.weather_state_abbr}.svg`;
     this.viewElems.weatherIcon.alt = weather.weather_state_name;
 
-    const weatherStateName = weather.weather_state_name;
-    const currTemp = weather.the_temp.toFixed();
-    const maxTemp = weather.max_temp.toFixed();
-    const minTemp = weather.min_temp.toFixed();
-    const airPressure = weather.air_pressure.toFixed();
-    const humidity = weather.humidity.toFixed();
-    const windSpeed = weather.wind_speed.toFixed();
-    const valueOfRotate = weather.wind_direction.toFixed();
-    const weatherDate = weather.applicable_date;
-
-    this.viewElems.weatherStateName.innerText = `${weatherStateName}`;
-    this.viewElems.weatherCurrentTemp.innerText = `${currTemp}°C`;
-    this.viewElems.weatherMaxTemp.innerText = `${maxTemp}°C`;
-    this.viewElems.weatherMinTemp.innerText = `${minTemp}°C`;
-    this.viewElems.airPressure.innerText = `${airPressure}hPa`;
-    this.viewElems.humidity.innerText = `${humidity}%`;
-    this.viewElems.windSpeed.innerText = `${windSpeed}km/h`;
-    this.viewElems.windArrow.style.transform = `rotate(${valueOfRotate}deg)`;
-    this.viewElems.weatherDate.innerText = weatherDate;
+    this.viewElems.weatherStateName.innerText = `${weather_state_name}`;
+    this.viewElems.weatherCurrentTemp.innerText = `${the_temp.toFixed()}°C`;
+    this.viewElems.weatherMaxTemp.innerText = `${max_temp.toFixed()}°C`;
+    this.viewElems.weatherMinTemp.innerText = `${min_temp.toFixed()}°C`;
+    this.viewElems.airPressure.innerText = `${air_pressure.toFixed()}hPa`;
+    this.viewElems.humidity.innerText = `${humidity.toFixed()}%`;
+    this.viewElems.windSpeed.innerText = `${wind_speed.toFixed()}km/h`;
+    this.viewElems.windArrow.style.transform = `rotate(${wind_direction}deg)`;
+    this.viewElems.weatherDate.innerText = applicable_date;
   };
 
   displayAnotherWeather = () => {
@@ -111,15 +102,17 @@ class WeatherApp {
     console.log(this.dayCount);
     if (itemKey === "nextDay") {
       this.dayCount++;
-      let query = this.viewElems.searchInput.value;
-      getWeatherByCity(query).then((data) => {
-        this.displayWeatherData(data);
-        this.switchView();
-      });
-      this.fadeInOut();
     } else if (itemKey === "prevDay") {
       this.dayCount--;
     }
+    
+    let query = this.viewElems.searchInput.value;
+    getWeatherByCity(query).then((data) => {
+      this.displayWeatherData(data);
+      this.switchView();
+    });
+    this.fadeInOut();
+
     if (this.dayCount <= 0) {
       this.viewElems.prevDay.disabled = true;
       this.viewElems.nextDay.disabled = false;

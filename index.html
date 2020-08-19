@@ -41,11 +41,11 @@
         <button id="searchButton">Search</button>
       </div>
       
-      <div id="weatherForecastView" class="weather-info__forecast-view siema">
-       <div class="wrap">
+      <div id="weatherForecastView" class="weather-info__forecast-view">
         <button class="weather-info__btn-return" id="returnToSearchBtn">
-          <i class="fas fa-arrow-alt-circle-left"></i>
+          <i class="fas fa-times"></i>
         </button>
+    
 
         <div class="weather-info__city">
           <h1 id="weatherCity" class="weatherCity"></h1>
@@ -67,13 +67,20 @@
             </p>
           </div>
         </div>
-       </div>
+       
       </div>
+      
+       <button id="prevDay" class="leftBtn" disabled>
+          <i class="fas fa-arrow-alt-circle-left"></i>
+          <p>Prev day</p>
+       </button>
+       <button id="nextDay" class="rightBtn">
+         <i class="fas fa-arrow-alt-circle-right"></i>
+         <p>Next day</p>
+       </button>
+      
     </section>
   </main>
-  <script src="siema/siema.min.js"></script>
- 
-  <script src="src/siema.js"></script>
   <script type="module" src="src/main.js"></script>
 </body>
 </html>

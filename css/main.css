@@ -61,7 +61,7 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px;
+  padding: 35px;
 }
 
 .weather-info__search-view #errInfo {
@@ -108,22 +108,18 @@ main {
 
 .weather-info__forecast-view {
   display: none;
-}
-
-.weather-info__forecast-view .wrap {
   padding: 0 15px;
   width: auto;
-  padding: 20px 10px;
 }
 
 @media (min-width: 576px) {
-  .weather-info__forecast-view .wrap {
+  .weather-info__forecast-view {
     width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  .weather-info__forecast-view .wrap {
+  .weather-info__forecast-view {
     width: 720px;
   }
 }
@@ -132,7 +128,8 @@ main {
   text-align: center;
   font-size: 1.4rem;
   letter-spacing: 1px;
-  padding-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 
 .weather-info__temperatures h3 span {
@@ -145,6 +142,7 @@ main {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  padding: 5px 5px 25px 5px;
 }
 
 .weather-info__temperatures__wrap p {
@@ -174,7 +172,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 0;
+  padding-top: 30px;
 }
 
 .weather-info__city h1 {
@@ -188,12 +186,12 @@ main {
 
 .weather-info__btn-return {
   position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px;
+  padding: 5px;
   background: none;
   border: none;
   cursor: pointer;
+  top: 5px;
+  right: 5px;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
@@ -201,11 +199,48 @@ main {
 }
 
 .weather-info__btn-return i {
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   color: #333;
 }
 
 .weather-info__btn-return:hover {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
+}
+
+.leftBtn,
+.rightBtn {
+  display: none;
+  position: absolute;
+  padding: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  top: 82%;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+  opacity: 0.7;
+}
+
+.leftBtn:hover,
+.rightBtn:hover {
+  opacity: 1;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.leftBtn i,
+.rightBtn i {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.leftBtn {
+  left: 0px;
+}
+
+.rightBtn {
+  right: 0px;
 }

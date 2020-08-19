@@ -22,6 +22,9 @@ class WeatherApp {
     this.viewElems.searchInput.addEventListener("keyup", this.handleSubmit);
     this.viewElems.searchButton.addEventListener("click", this.handleSubmit);
     this.viewElems.returnToSearchBtn.addEventListener("click", this.returnToSearch);
+
+    this.viewElems.prevDay.addEventListener("click", this.displayAnotherWeather);
+    this.viewElems.nextDay.addEventListener("click", this.displayAnotherWeather);
   };
 
   handleSubmit = (e) => {
@@ -54,13 +57,18 @@ class WeatherApp {
     if (this.viewElems.weatherSearchView.style.display !== "none") {
       this.viewElems.weatherSearchView.style.display = "none";
       this.viewElems.weatherForecastView.style.display = "block";
+      this.viewElems.nextDay.style.display = "block";
+      this.viewElems.prevDay.style.display = "block";
     } else {
       this.viewElems.weatherSearchView.style.display = "flex";
       this.viewElems.weatherForecastView.style.display = "none";
+      this.viewElems.nextDay.style.display = "none";
+      this.viewElems.prevDay.style.display = "none";
     }
   };
 
   returnToSearch = () => {
+    this.dayCount = 0;
     this.fadeInOut();
     setTimeout(() => {
       this.switchView();
@@ -72,6 +80,7 @@ class WeatherApp {
     this.switchView();
     this.fadeInOut();
     const weather = data.consolidated_weather[this.dayCount];
+    console.log(data);
     this.viewElems.weatherCity.innerText = data.title;
     this.viewElems.weatherIcon.src = `https://www.metaweather.com/static/img/weather/${weather.weather_state_abbr}.svg`;
     this.viewElems.weatherIcon.alt = weather.weather_state_name;
@@ -95,6 +104,33 @@ class WeatherApp {
     this.viewElems.windSpeed.innerText = `${windSpeed}km/h`;
     this.viewElems.windArrow.style.transform = `rotate(${valueOfRotate}deg)`;
     this.viewElems.weatherDate.innerText = weatherDate;
+  };
+
+  displayAnotherWeather = () => {
+    const itemKey = event.target.closest("button").id;
+    console.log(this.dayCount);
+    if (itemKey === "nextDay") {
+      this.dayCount++;
+      let query = this.viewElems.searchInput.value;
+      getWeatherByCity(query).then((data) => {
+        this.displayWeatherData(data);
+        this.switchView();
+      });
+      this.fadeInOut();
+    } else if (itemKey === "prevDay") {
+      this.dayCount--;
+    }
+    if (this.dayCount <= 0) {
+      this.viewElems.prevDay.disabled = true;
+      this.viewElems.nextDay.disabled = false;
+    } else if (this.dayCount >= 5) {
+      this.viewElems.prevDay.disabled = false;
+      this.viewElems.nextDay.disabled = true;
+    } else {
+      this.viewElems.prevDay.disabled = false;
+      this.viewElems.nextDay.disabled = false;
+    }
+    console.log(this.dayCount);
   };
 }
 

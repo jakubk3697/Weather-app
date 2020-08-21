@@ -155,8 +155,12 @@ main {
 .weather-info__btn-return {
   i {
     font-size: 1.8rem;
+<<<<<<< HEAD
 
     color: #ddd;
+=======
+    color: #333;
+>>>>>>> cd7ad7cda807f0ab85f03f4291fa0e290d855dbf
   }
   @include btnBordNone;
   top: 10px;

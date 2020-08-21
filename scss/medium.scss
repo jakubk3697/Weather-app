@@ -1,57 +1,11 @@
-/* media="screen and (min-width:768px) */
-.weather-info__search-view {
-  padding: 45px;
-  label {
-    font-size: 3.3rem;
-  }
-  input {
-    padding: 10px 20px;
-    margin: 15px 15px 5px 15px;
-    font-size: 1.6rem;
-  }
-  button {
-    font-size: 1.6rem;
-  }
-  #errInfo {
-    font-size: 1.3rem;
-    padding: 5px 0;
-  }
-}
-
+// /* media="screen and (min-width:768px) */
 .weather-info__forecast-view {
-  .wrap {
-    padding: 35px;
+  justify-content: center;
+  @include btsContainer;
+  .forecastTopSection {
+    padding: 15px;
+    .weatherCity {
+      font-size: 3rem;
+    }
   }
-}
-
-.weather-info__city {
-  h1 {
-    font-size: 3.4rem;
-  }
-  .weatherIcon {
-    width: 150px;
-  }
-}
-
-.weather-info__temperatures {
-  letter-spacing: 1px;
-  h3 {
-    font-size: 2.2rem;
-  }
-  p {
-    font-size: 1.4rem;
-  }
-}
-
-.weather-info__btn-return {
-  i {
-    font-size: 3rem;
-  }
-}
-.leftBtn,
-.rightBtn {
-  i {
-    font-size: 2.8rem;
-  }
-  top: 85%;
 }

@@ -42,12 +42,15 @@ body {
   font-family: "Montserrat", sans-serif;
   height: 100vh;
 }
+li {
+  list-style: none;
+}
 
 main {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  min-height: 100%;
   background-image: url("https://picsum.photos/1600/1050");
   background-size: cover;
   background-position: center;
@@ -58,15 +61,14 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(248, 248, 248, 0.8) 0%, rgba(220, 220, 220, 0.9) 50%, rgba(248, 248, 248, 0.8) 100%);
-  box-shadow: 0px 0px 10px 3px rgba(36, 36, 36, 0.05);
+  background: linear-gradient(135deg, rgba(0, 50, 93, 0.8) 0%, rgba(0, 0, 0, 0.9) 50%, rgba(0, 50, 60, 0.8) 100%);
+  color: #ddd;
   transition-duration: 0.5s;
   transition-property: opacity;
 }
 
 .weather-info__search-view {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -97,54 +99,56 @@ main {
 }
 
 .weather-info__forecast-view {
-  display: none;
+  justify-content: center;
   @include btsContainer;
-}
-
-.weather-info__temperatures {
-  h3 {
-    text-align: center;
-    font-size: 1.4rem;
-    letter-spacing: 1px;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    span {
-      font-weight: normal;
+  .forecastTopSection {
+    padding: 15px;
+    .weatherCity {
+      font-size: 2rem;
     }
   }
-}
-.weather-info__temperatures__wrap {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 5px 5px 25px 5px;
+  .weatherItems {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 
-  p {
-    font-weight: bold;
-    margin-top: 15px;
-    width: 50%;
-    text-decoration: underline rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
-    text-align: center;
-    &:last-child {
-      width: 100%;
+    .weatherItem {
+      margin: 10px;
+      padding: 10px;
+      box-shadow: 0px 0px 5px #ddd;
+      .itemHeader {
+        display: flex;
+        align-items: flex-start;
+        font-size: 1.4rem;
+        .title {
+          margin-right: 5px;
+        }
+      }
+      .itemTemp {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        .wheatherImg {
+          margin-left: 10px;
+          width: 40px;
+        }
+        .currentTemp {
+          margin-right: 5px;
+        }
+      }
+      .itemDetails {
+        .parameter {
+          margin: 7px 0;
+          text-decoration: underline rgba(221, 221, 221, 0.431);
+        }
+      }
+      &:first-child {
+        box-shadow: 0px 0px 10px 4px #ddd;
+      }
     }
-  }
-  span {
-    font-weight: normal;
-  }
-}
-
-.weather-info__city {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 30px;
-  h1 {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-  .weatherIcon {
-    width: 80px;
   }
 }
 
@@ -152,38 +156,13 @@ main {
   i {
     font-size: 1.8rem;
 
-    color: #333;
+    color: #ddd;
   }
   @include btnBordNone;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   transition: transform 0.3s;
   &:hover {
     transform: scale(0.9);
   }
-}
-
-.leftBtn,
-.rightBtn {
-  display: none;
-  @include btnBordNone;
-  top: 82%;
-  transition: opacity 0.3s, transform 0.3s;
-  opacity: 0.7;
-  &:hover {
-    opacity: 1;
-    transform: scale(0.9);
-  }
-  i {
-    font-size: 1.8rem;
-    color: #333;
-  }
-}
-
-.leftBtn {
-  left: 0px;
-}
-
-.rightBtn {
-  right: 0px;
 }

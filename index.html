@@ -1,86 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/8a7adf38d3.js" crossorigin="anonymous"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/8a7adf38d3.js" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="css/main.css">
-  <link
-      media="screen and (min-width:576px)"
-      rel="stylesheet"
-      href="css/small.css"
-    />
-    <link
-    media="screen and (min-width:768px)"
-    rel="stylesheet"
-    href="css/medium.css"
-  />
-  <link
-      media="screen and (min-width:992px)"
-      rel="stylesheet"
-      href="css/large.css"
-    />
-  <link
-      media="screen and (min-width:1200px)"
-      rel="stylesheet"
-      href="css/extraLarge.css"
-    />
-  
-  
-  <title>Weather App v1.1</title>
-</head>
-<body>
-  <main>
-    <section class="weather-info" id="mainContainer">
-      <div id="weatherSearchView" class="weather-info__search-view">
-        <label class="weather-info__search__label" for="searchInput">Check weather:</label>
-        <input type="text" id="searchInput">
-        <p id="errInfo">Invalid city!</p>
-        <button id="searchButton">Search</button>
-      </div>
-      
-      <div id="weatherForecastView" class="weather-info__forecast-view">
-        <button class="weather-info__btn-return" id="returnToSearchBtn">
-          <i class="fas fa-times"></i>
-        </button>
-    
-
-        <div class="weather-info__city">
-          <h1 id="weatherCity" class="weatherCity"></h1>
-          <img id="weatherIcon"  class="weatherIcon"></h1>
+    <title>Weather App v1.1</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link media="screen and (min-width:576px)" rel="stylesheet" href="css/small.css" />
+    <link media="screen and (min-width:768px)" rel="stylesheet" href="css/medium.css" />
+    <link media="screen and (min-width:992px)" rel="stylesheet" href="css/large.css" />
+    <link media="screen and (min-width:1200px)" rel="stylesheet" href="css/extraLarge.css" />
+  </head>
+  <body>
+    <main>
+      <section class="weather-info" id="mainContainer">
+        <div id="weatherSearchView" class="weather-info__search-view">
+          <label class="weather-info__search__label" for="searchInput">Check weather:</label>
+          <input type="text" id="searchInput" />
+          <p id="errInfo">Invalid city!</p>
+          <button id="searchButton">Search</button>
         </div>
-        
-        <div class="weather-info__temperatures">
-          <h3>Weather for: <span id="weatherDate"></span></h3>
-          <div class="weather-info__temperatures__wrap">
-            <p class="info"> Condition: <span id="weatherStateName"></span></p>
-            <p class="info"> Current: <span id="weatherCurrentTemp"></span></p>
-            <p class="info"> Max: <span id="weatherMaxTemp"></span></p>
-            <p class="info">Min: <span id="weatherMinTemp" ></span></p>
-            <p class="info" >Air Pressure: <span id="airPressure"></span></p>
-            <p class="info">Humidity: <span id="humidity"></span></p>
-            <p class="info">Wind speed: 
-              <span id="windSpeed"></span>
-              <i id="windArrow" class="fas fa-arrow-up"></i>
-            </p>
+
+        <div id="weatherForecastView" class="weather-info__forecast-view">
+          <div class="forecastTopSection">
+            <h2 id="weatherCity" class="weatherCity">Warszawa</h2>
+            <button class="weather-info__btn-return" id="returnToSearchBtn">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="weather-info__details">
+            <ul class="weatherItems">
+              <li class="weatherItem">
+                <div class="itemHeader">
+                  <span class="title">Piątek</span>
+                  <span class="subtitle"> 21.08.2020</span>
+                 
+                </div>
+                <div class="itemTemp">
+                  <span id="weatherCurrentTemp" class="currentTemp">31°C</span>
+                  <span id="weatherStateName" class="stateName">Rain</span>
+                  <img src="https://www.metaweather.com/static/img/weather/lr.svg" id="weatherIcon" class="wheatherImg"/>
+                </div>
+                <div class="itemDetails">
+                  <ul class="boxItems">
+                    <li class="parameter">
+                      <span class="itemLabel">Max temp:</span>
+                      <span id="weatherMaxTemp" class="itemValue">33°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Min temp:</span>
+                      <span id="weatherMinTemp" class="itemValue">24°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Air pressure:</span>
+                      <span id="airPressure" class="itemValue">1015hPa</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Humidity</span>
+                      <span id="humidity" class="itemValue">68%</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Wind speed</span>
+                      <span id="" class="itemValue">20km/h</span>
+                      <i id="windArrow" class="fas fa-arrow-up"></i>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="weatherItem">
+                <div class="itemHeader">
+                  <span class="title">Piątek</span>
+                  <span class="subtitle"> 21.08.2020</span>
+                 
+                </div>
+                <div class="itemTemp">
+                  <span id="weatherCurrentTemp" class="currentTemp">31°C</span>
+                  <span id="weatherStateName" class="stateName">Rain</span>
+                  <img src="https://www.metaweather.com/static/img/weather/lr.svg" id="weatherIcon" class="wheatherImg"/>
+                </div>
+                <div class="itemDetails">
+                  <ul class="boxItems">
+                    <li class="parameter">
+                      <span class="itemLabel">Max temp:</span>
+                      <span id="weatherMaxTemp" class="itemValue">33°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Min temp:</span>
+                      <span id="weatherMinTemp" class="itemValue">24°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Air pressure:</span>
+                      <span id="airPressure" class="itemValue">1015hPa</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Humidity</span>
+                      <span id="humidity" class="itemValue">68%</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Wind speed</span>
+                      <span id="" class="itemValue">20km/h</span>
+                      <i id="windArrow" class="fas fa-arrow-up"></i>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="weatherItem">
+                <div class="itemHeader">
+                  <span class="title">Piątek</span>
+                  <span class="subtitle"> 21.08.2020</span>
+                 
+                </div>
+                <div class="itemTemp">
+                  <span id="weatherCurrentTemp" class="currentTemp">31°C</span>
+                  <span id="weatherStateName" class="stateName">Rain</span>
+                  <img src="https://www.metaweather.com/static/img/weather/lr.svg" id="weatherIcon" class="wheatherImg"/>
+                </div>
+                <div class="itemDetails">
+                  <ul class="boxItems">
+                    <li class="parameter">
+                      <span class="itemLabel">Max temp:</span>
+                      <span id="weatherMaxTemp" class="itemValue">33°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Min temp:</span>
+                      <span id="weatherMinTemp" class="itemValue">24°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Air pressure:</span>
+                      <span id="airPressure" class="itemValue">1015hPa</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Humidity</span>
+                      <span id="humidity" class="itemValue">68%</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Wind speed</span>
+                      <span id="" class="itemValue">20km/h</span>
+                      <i id="windArrow" class="fas fa-arrow-up"></i>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="weatherItem">
+                <div class="itemHeader">
+                  <span class="title">Piątek</span>
+                  <span class="subtitle"> 21.08.2020</span>
+                 
+                </div>
+                <div class="itemTemp">
+                  <span id="weatherCurrentTemp" class="currentTemp">31°C</span>
+                  <span id="weatherStateName" class="stateName">Rain</span>
+                  <img src="https://www.metaweather.com/static/img/weather/lr.svg" id="weatherIcon" class="wheatherImg"/>
+                </div>
+                <div class="itemDetails">
+                  <ul class="boxItems">
+                    <li class="parameter">
+                      <span class="itemLabel">Max temp:</span>
+                      <span id="weatherMaxTemp" class="itemValue">33°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Min temp:</span>
+                      <span id="weatherMinTemp" class="itemValue">24°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Air pressure:</span>
+                      <span id="airPressure" class="itemValue">1015hPa</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Humidity</span>
+                      <span id="humidity" class="itemValue">68%</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Wind speed</span>
+                      <span id="" class="itemValue">20km/h</span>
+                      <i id="windArrow" class="fas fa-arrow-up"></i>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="weatherItem">
+                <div class="itemHeader">
+                  <span class="title">Piątek</span>
+                  <span class="subtitle"> 21.08.2020</span>
+                 
+                </div>
+                <div class="itemTemp">
+                  <span id="weatherCurrentTemp" class="currentTemp">31°C</span>
+                  <span id="weatherStateName" class="stateName">Rain</span>
+                  <img src="https://www.metaweather.com/static/img/weather/lr.svg" id="weatherIcon" class="wheatherImg"/>
+                </div>
+                <div class="itemDetails">
+                  <ul class="boxItems">
+                    <li class="parameter">
+                      <span class="itemLabel">Max temp:</span>
+                      <span id="weatherMaxTemp" class="itemValue">33°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Min temp:</span>
+                      <span id="weatherMinTemp" class="itemValue">24°C</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Air pressure:</span>
+                      <span id="airPressure" class="itemValue">1015hPa</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Humidity</span>
+                      <span id="humidity" class="itemValue">68%</span>
+                    </li>
+                    <li class="parameter">
+                      <span class="itemLabel">Wind speed</span>
+                      <span id="" class="itemValue">20km/h</span>
+                      <i id="windArrow" class="fas fa-arrow-up"></i>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          
+            </ul>
           </div>
         </div>
-       
-      </div>
-      
-       <button id="prevDay" class="leftBtn" disabled>
-          <i class="fas fa-arrow-alt-circle-left"></i>
-          <p>Prev day</p>
-       </button>
-       <button id="nextDay" class="rightBtn">
-         <i class="fas fa-arrow-alt-circle-right"></i>
-         <p>Next day</p>
-       </button>
-      
-    </section>
-  </main>
-  <script type="module" src="src/main.js"></script>
-</body>
+      </section>
+    </main>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
 </html>

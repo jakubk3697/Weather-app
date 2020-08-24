@@ -90,7 +90,7 @@ main {
 
 .weather-info__search-view button {
   padding: 10px 20px;
-  background-color: rgba(0, 50, 93, 0.8);
+  background-color: #004b63;
   border: none;
   border-radius: 8px;
   color: white;
@@ -149,6 +149,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-bottom: 25px;
 }
 
 .weather-info__forecast-view .weatherItems .weatherItem {

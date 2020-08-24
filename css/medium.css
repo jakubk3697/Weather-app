@@ -1,3 +1,7 @@
+.weather-info__search-view {
+  padding: 50px 70px;
+}
+
 .weatherCity {
   font-size: 3rem;
 }

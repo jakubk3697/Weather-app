@@ -75,7 +75,7 @@ class WeatherApp {
     this.fadeInOut();
 
     const { weather_state_name, the_temp, max_temp, min_temp, air_pressure, humidity, wind_speed, wind_direction, applicable_date } = data.consolidated_weather[this.dayCount];
-
+    
     this.viewElems.weatherCity.innerText = data.title;
     const weather = data.consolidated_weather[this.dayCount];
     this.viewElems.weatherIcon.src = `https://www.metaweather.com/static/img/weather/${weather.weather_state_abbr}.svg`;
